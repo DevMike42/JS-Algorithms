@@ -27,11 +27,17 @@ module.exports = {
   // ========================================
   // Solution Two using Array.slice()
   chunkSlice: function (array, size) {
+    // Create new empty arr for final chunked array
     const chunked = [];
+    // Create index value for while loop
     let index = 0;
 
+    // Loop through array
     while (index < array.length) {
+      // Pull elements out of array according to the
+      // starting index and ending index (based on size)
       chunked.push(array.slice(index, index + size))
+      // Increment index by size to move to the next chunk
       index += size;
     }
 
@@ -40,14 +46,23 @@ module.exports = {
   // ========================================
   // Solution Three using Array.splice()
   chunkSplice: function (array, size) {
+    // Create new empty arr for final chunked array
     const chunked = [];
-    const numEl = Math.ceil(array.length / size)
+    // Find the total num of Elements the new chunked
+    // array will contain
+    const totalNumOfEl = Math.ceil(array.length / size)
+    // Set a current element value for while loop
+    let currElement = 1;
 
-    for (let i = 1; i <= numEl; i++) {
+    // Loop through original array
+    while (currElement <= totalNumOfEl) {
+      // Pull elements out of og array by size and push
+      // onto new chunked array
       chunked.push(array.splice(0, size));
-      console.log(chunked);
+      // Increment current element value 
+      currElement++;
     }
 
-    return chunked
+    return chunked;
   }
 };
