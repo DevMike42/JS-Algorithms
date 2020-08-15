@@ -37,7 +37,7 @@ module.exports = {
 
     const tempArr = str.split('');
 
-    tempArr.forEach(char => char ? charMap[char]++ : charMap[char] = 1);
+    tempArr.forEach(char => charMap[char.toString()] ? charMap[char]++ : charMap[char.toString()] = 1);
 
     for (const char in charMap) {
       if (charMap[char] > max) {
