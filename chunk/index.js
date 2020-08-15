@@ -25,8 +25,8 @@ module.exports = {
     return chunked;
   },
   // ========================================
-  // Solution Two
-  chunkTwo: function (array, size) {
+  // Solution Two using Array.slice()
+  chunkSlice: function (array, size) {
     const chunked = [];
     let index = 0;
 
@@ -36,5 +36,18 @@ module.exports = {
     }
 
     return chunked;
+  },
+  // ========================================
+  // Solution Three using Array.splice()
+  chunkSplice: function (array, size) {
+    const chunked = [];
+    const numEl = Math.ceil(array.length / size)
+
+    for (let i = 1; i <= numEl; i++) {
+      chunked.push(array.splice(0, size));
+      console.log(chunked);
+    }
+
+    return chunked
   }
 };
